@@ -13,8 +13,8 @@ import {
 } from "../utils/localStorage";
 import {
   PrivateInfo,
-  ContactInfo,
   ProfileImage,
+  ContactInfo,
   Success,
 } from "../components/steps";
 
