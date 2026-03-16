@@ -4,6 +4,9 @@ export const saveFormValues = (values, step) => {
 
 export const retrieveFormValues = () => {
   const allSteps = JSON.parse(localStorage.getItem(`formStep`) || null);
-
   return allSteps;
+};
+
+export const deleteDataFromLocalStoage = () => {
+  localStorage.removeItem("formStep");
 };

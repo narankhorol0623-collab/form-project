@@ -1,21 +1,29 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { initialValues } from "@/constant/initial";
+import { initialValues } from "../constant/initial";
 import {
   validateStepOne,
   validateStepTwo,
   validateStepThree,
-} from "@/utils/validators";
-import { saveFormValues, retrieveFormValues } from "@/utils/localStorage";
-import { PrivateInfo } from "@/components/steps/Index";
-import { ContactInfo } from "@/components/steps/ContactInfo";
-import { ProfileImage } from "@/components/steps/Index";
-import { Success } from "@/components/steps/Index";
+} from "../utils/validators";
+import {
+  saveFormValues,
+  retrieveFormValues,
+  deleteDataFromLocalStoage,
+} from "../utils/localStorage";
+import {
+  PrivateInfo,
+  ContactInfo,
+  ProfileImage,
+  Success,
+} from "../components/steps";
 
 const Home = () => {
   const [step, setStep] = useState(0);
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialValues);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const max = 4;
   const handleClick = () => {
     if (step < max) {
@@ -24,8 +32,6 @@ const Home = () => {
   };
 
   const validators = [validateStepOne, validateStepTwo, validateStepThree];
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleNextOrSubmit = () => {
     setIsSubmitted(true);
@@ -37,8 +43,9 @@ const Home = () => {
 
     saveFormValues(formValues, step + 1);
 
-    if (step === max - 1) {
-      console.log("SUBMIT DATA:", formValues);
+    if (step === 2) {
+      deleteDataFromLocalStoage();
+      handleClick();
     } else {
       handleClick();
     }
@@ -63,6 +70,7 @@ const Home = () => {
     setFormValues((previous) => ({ ...previous, [name]: value }));
     setFormErrors((previous) => ({ ...previous, [name]: "" }));
   };
+
   const Container = [PrivateInfo, ContactInfo, ProfileImage, Success][step];
 
   return (
@@ -83,6 +91,7 @@ const Home = () => {
               setFormErrors={setFormErrors}
               handleClick={handleClick}
             />
+
             <div className={`flex gap-2 ${step === 0 ? "mt-31" : "mt-10"}`}>
               {step > 0 && step < 3 && (
                 <button

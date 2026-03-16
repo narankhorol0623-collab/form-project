@@ -1,6 +1,5 @@
 import React from "react";
 import { ErrorMessage } from "./ErrorMeassage";
-import { Label } from "./Label";
 
 export const Input = ({
   name,
@@ -29,7 +28,7 @@ export const Input = ({
         hidden={hidden}
         type={type}
         placeholder={placeholder}
-        className={`w-full h-[44px] rounded-lg border p-3 ${error ? "border-red-500" : "border-[#CBD5E1]"}`}
+        className={`w-full h-11 rounded-lg border p-3 ${error ? "border-red-500" : "border-[#CBD5E1]"}`}
       />
 
       {error && <ErrorMessage message={error} />}

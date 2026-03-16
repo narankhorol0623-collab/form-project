@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { Header } from "@/components/layer/Header";
+import { useState, useRef } from "react";
+import { Header } from "../layer/Header";
 import { ErrorMessage } from "../ui/ErrorMeassage";
 
 export const ProfileImage = ({ handleChange, formValues, formErrors }) => {
@@ -47,7 +47,7 @@ export const ProfileImage = ({ handleChange, formValues, formErrors }) => {
   };
 
   return (
-    <div className="w-[416px] flex flex-col gap-4">
+    <div className="w-104 flex flex-col gap-4">
       <Header />
       <p>Date of birth * </p>
       <input

@@ -1,13 +1,11 @@
-import React from "react";
+import { Header } from "../layer/Header";
 import { Input } from "../ui/Input";
-import { Header } from "@/components/layer/Header";
-import { ErrorMessage } from "../ui/ErrorMeassage";
 
 export const PrivateInfo = ({ handleChange, formValues, formErrors }) => {
   return (
-    <div className="w-[416px] h-[385px] flex flex-col gap-7">
+    <div className="w-104 h-96.25 flex flex-col gap-7">
       <Header />
-      <div className="w-[416px] h-[228px] flex flex-col gap-3">
+      <div className="w-104 h-57 flex flex-col gap-3">
         <div className="flex flex-col gap-2">
           <Input
             LabelName="First Name *"

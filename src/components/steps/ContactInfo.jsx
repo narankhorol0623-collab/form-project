@@ -1,11 +1,9 @@
-import React from "react";
-import { Header } from "@/components/layer/Header";
+import { Header } from "../layer/Header";
 import { Input } from "../ui/Input";
-import { ErrorMessage } from "../ui/ErrorMeassage";
 
 export const ContactInfo = ({ handleChange, formValues, formErrors }) => {
   return (
-    <div className="w-[416px] flex flex-col gap-4">
+    <div className="w-104 flex flex-col gap-4">
       <Header />
 
       <div className="flex flex-col gap-3">
